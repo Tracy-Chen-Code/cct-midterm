@@ -2,10 +2,9 @@
 # This is the midterm project of COGS 107.
 
 Report
+Model, priors, and convergence. I modelled each informant’s “know-how” with a competence parameter that I let vary uniformly between 0.5 (pure guessing) and 1 (always correct).  For every question I started with a 50/50 prior that the true answer was “yes” or “no.”  Inside PyMC I combined those pieces so that a well-informed person is more likely to agree with the eventual consensus while a less-informed person is nearly guessing.  I ran four MCMC chains with 1 000 tuning and 2 000 kept draws.  All R-hat values were exactly 1.00 and effective sample sizes were comfortably above three thousand, so the sampler mixed well and the posterior summaries are reliable.
 
-
-
-
+Results and comparison with majority vote. Posterior means place informant competence between 0.56 (least knowledgeable) and 0.87 (most knowledgeable).  The density plots show narrow, one-sided curves that stay well above the 0.5 guessing floor, so every participant contributed real information but to very different degrees.  The model’s consensus answer key differs from the simple majority vote on four of the fourteen items.  In each of those cases the class was roughly split, yet the small group of high-competence informants chose the opposite option, prompting the consensus model to override the raw count.  This illustrates the core value of Cultural Consensus Theory: it automatically down-weights the “noisy majority” when the most knowledgeable voices disagree, giving us a defensible answer key rather than a popularity contest.
 
 Requirements
 
